@@ -16,26 +16,26 @@ const emailAndPasswordConfig = {
 };
 
 const pluginsConfig = [
-  polar({
-    client: polarClient,
-    createCustomerOnSignUp: true,
-    use: [
-      checkout({
-        authenticatedUsersOnly: true,
-        successUrl: "/dashboard/upgrade",
-      }),
-      portal(),
-      webhooks({
-        secret: process.env.POLAR_WEBHOOK_SECRET!,
-        onCustomerStateChanged: async (payload) => {}, // Triggered when anything regarding a customer changes
-        onOrderPaid: async (payload) => {}, // Triggered when an order was paid (purchase, subscription renewal, etc.)
-        // Over 25 granular webhook handlers
-        onPayload: async (payload) => {
-          console.log(payload);
-        }, // Catch-all for all events
-      }),
-    ],
-  }),
+  // polar({
+  //   client: polarClient,
+  //   createCustomerOnSignUp: true,
+  //   use: [
+  //     checkout({
+  //       authenticatedUsersOnly: true,
+  //       successUrl: "/dashboard/upgrade",
+  //     }),
+  //     portal(),
+  //     webhooks({
+  //       secret: process.env.POLAR_WEBHOOK_SECRET!,
+  //       onCustomerStateChanged: async (payload) => {}, // Triggered when anything regarding a customer changes
+  //       onOrderPaid: async (payload) => {}, // Triggered when an order was paid (purchase, subscription renewal, etc.)
+  //       // Over 25 granular webhook handlers
+  //       onPayload: async (payload) => {
+  //         console.log(payload);
+  //       }, // Catch-all for all events
+  //     }),
+  //   ],
+  // }),
   nextCookies(),
 ];
 

@@ -13,7 +13,7 @@ generator client {
 datasource db {
   provider  = "postgresql"
   url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  // directUrl = env("DIRECT_URL")
 }
 
 model User {
@@ -74,4 +74,17 @@ model Verification {
   updatedAt  DateTime?
 
   @@map("verification")
+}
+
+model Image {
+  id        String   @id @default(uuid())
+  filename  String
+  url       String // URL o path donde está almacenada la imagen
+  mimetype  String
+  size      Int // tamaño en bytes
+  width     Int? // opcional, ancho en px
+  height    Int? // opcional, alto en px
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
 }

@@ -10,6 +10,7 @@ import { Separator } from "@/components/ui/separator"
 import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
+import Link from "next/link"
 
 type Props = {}
 
@@ -40,7 +41,11 @@ const DashboardPage = (props: Props) => {
       </header>
       <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
         <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-          <div className="bg-muted/50 aspect-video rounded-xl" />
+          <Link href={"/dashboard/uploads"} className="bg-muted/50 hover:bg-muted/90 focus:bg-muted/70 aspect-video rounded-xl p-2">
+            <div className="w-full h-full flex justify-center items-center">
+              <span>Image Uploads</span>
+            </div>
+          </Link>
           <div className="bg-muted/50 aspect-video rounded-xl" />
           <div className="bg-muted/50 aspect-video rounded-xl" />
         </div>
